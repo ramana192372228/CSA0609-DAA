@@ -1,0 +1,70 @@
+AIM
+To write a C program to sort an array of elements using the Bubble Sort algorithm and analyze its time and space complexity using Big-O notation
+ALGORITHM
+1. Start.
+2. Read the number of elements and array elements.
+3. Compare each pair of adjacent elements.
+4. If the first element is greater than the second, swap them.
+5. Repeat the process until the array is sorted.
+6. Display the sorted array.
+7. Analyze the time and space complexity.
+8. Stop.
+PSEUDOCODE
+Algorithm BubbleSort(A, n)
+
+    for i = 0 to n - 2 do
+        for j = 0 to n - i - 2 do
+            if A[j] > A[j + 1] then
+                swap A[j], A[j + 1]
+            end if
+        end for
+    end for
+
+    print A
+
+End Algorithm
+SOURCE CODE (C)
+
+#include <stdio.h>
+
+int main() {
+    int a[100], n, i, j, temp;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter array elements: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+BIG-O COMPLEXITY ANALYSIS
+Case	Time Complexity	Explanation
+Best Case	\(O(n^2)\)	In this basic implementation, comparisons continue even if the array is already sorted.
+Average Case	\(O(n^2)\)	Multiple comparisons and swaps may be required.
+Worst Case	\(O(n^2)\)	A reverse-sorted array requires the maximum number of comparisons and swaps.
+Auxiliary Space	\(O(1)\)	Only a temporary variable is needed for swapping.
+Note: An optimized Bubble Sort with a swap flag has a best-case time complexity of \(O(n)\) when the array is already sorted.
+ RESULT
+Thus, the C program successfully sorts the given array using Bubble Sort. The basic implementation has \(O(n^2)\) time complexity and \(O(1)\) auxiliary space complexity.
+    printf("Sorted array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
+INPUT
+Enter number of elements: 5
+Enter array elements: 5 1 4 2 8
+OUTPUT
+Sorted array: 1 2 4 5 8
