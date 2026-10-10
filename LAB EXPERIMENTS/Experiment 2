@@ -1,0 +1,61 @@
+AIM
+To write a C program to find the common elements between two arrays and analyze its time and space complexity
+ALGORITHM
+1. Start.
+2. Initialize two arrays.
+3. Traverse the first array element by element.
+4. Compare each element with all elements of the second array.
+5. If a matching element is found, print it.
+6. Continue until all elements of the first array are checked.
+7. Stop
+PSEUDOCODE
+Algorithm CommonElements(A, B)
+
+    for i = 0 to length(A) - 1 do
+        for j = 0 to length(B) - 1 do
+            if A[i] = B[j] then
+                print A[i]
+                break
+            end if
+        end for
+    end for
+
+End Algorithm
+SOURCE CODE (C)
+
+#include <stdio.h>
+
+int main() {
+    int A[] = {1, 2, 3, 4, 5};
+    int B[] = {3, 4, 5, 6, 7};
+    int n = 5, m = 5;
+    int i, j;
+
+    printf("Common elements: ");
+
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            if (A[i] == B[j]) {
+                printf("%d ", A[i]);
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
+INPUT
+Array A = [1, 2, 3, 4, 5]
+Array B = [3, 4, 5, 6, 7]
+
+
+ OUTPUT
+Common elements: 3 4 5
+
+COMPLEXITY ANALYSIS
+Let \(n\) be the number of elements in array A and \(m\) be the number of elements in array B.
+- Time Complexity: \(O(n \times m)\) — each element of A may be compared with every element of B.
+- Auxiliary Space Complexity: \(O(1)\) — only a fixed number of variables are used.
+
+RESULT
+Thus, the C program successfully identifies the common elements between two arrays. The worst-case time complexity is \(O(nm)\), and the auxiliary space complexity is \(O(1)\).
