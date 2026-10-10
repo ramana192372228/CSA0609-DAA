@@ -1,0 +1,93 @@
+ AIM
+To write a C program to find the first palindromic string in an array of strings and analyze its time and space complexity.
+ALGORITHM
+1. Start.
+2. Initialize an array of strings.
+3. Traverse each string in the array.
+4. Set left = 0 and right = length - 1.
+5. Compare the characters at both pointers.
+6. If they differ, the string is not a palindrome.
+7. If they match, increment left and decrement right.
+8. If the string is a palindrome, print it and stop.
+9. If no palindrome is found, print an empty string.
+10. Stop.
+ PSEUDOCODE
+Algorithm FirstPalindrome(words)
+    for each word in words do
+        left = 0
+        right = length(word) - 1
+        palindrome = TRUE
+
+        while left < right do
+            if word[left] != word[right] then
+                palindrome = FALSE
+                break
+            end if
+            left = left + 1
+            right = right - 1
+        end while
+
+        if palindrome = TRUE then
+            print word
+            stop
+        end if
+    end for
+
+    print ""
+End Algorithm
+SOURCE CODE (C)
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char words[5][20] = {
+        "abc", "car", "ada", "racecar", "cool"
+    };
+
+    int i, left, right, palindrome;
+    int found = 0;
+
+    for (i = 0; i < 5; i++) {
+        left = 0;
+        right = strlen(words[i]) - 1;
+        palindrome = 1;
+
+        while (left < right) {
+            if (words[i][left] != words[i][right]) {
+                palindrome = 0;
+                break;
+            }
+
+            left++;
+            right--;
+        }
+
+        if (palindrome == 1) {
+            printf("First Palindromic String: %s\n", words[i]);
+            found = 1;
+            break;
+        }
+    }
+
+    if (found == 0) {
+        printf("First Palindromic String: \"\"\n");
+    }
+
+    return 0;
+}
+INPUT
+words = ["abc", "car", "ada", "racecar", "cool"]
+
+
+OUTPUT
+First Palindromic String: ada
+Explanation: The strings "abc" and "car" are not palindromes. The string "ada" reads the same forward and backward, so it is the first palindrome.
+7. COMPLEXITY ANALYSIS
+Let:
+- \(n\) = number of strings
+- \(m\) = maximum length of a string
+- Time Complexity: \(O(nm)\) — in the worst case, every string is checked.
+- Auxiliary Space Complexity: \(O(1)\) — only a fixed number of variables are used.
+8. RESULT
+Thus, the C program successfully finds the first palindromic string in an array. The output is "ada", with worst-case time complexity \(O(nm)\) and auxiliary space complexity \(O(1)\).
